@@ -1,0 +1,209 @@
+:root {
+  --couleur_principale: #0A2463;
+  --couleur_secondaire: #3E92CC;
+  --couleur_valid: #30c940;
+  --taille_bouton: 6vh;
+  }
+
+h1 {
+  text-align: center;
+  font-size: 8vh;
+  font-weight: bold;
+  color: var(--couleur_principale);
+  margin: 2vh;
+}
+
+h2 {
+  font-size: 4vh;
+  color: white;
+}
+
+h3 {
+  font-size: 3vh;
+  color: white;
+}
+
+p {
+  color: white;
+  font-size: 40px;
+}
+
+a {
+  color: black;
+}
+
+form {
+  padding-top: 2vh;
+}
+
+table {
+  padding-top: 2vh !important;
+  font-size: 30px !important;
+}
+
+label {
+  color: white;
+  font-size: 40px !important;
+}
+
+input {
+  height: 80px !important;
+  font-size: 40px !important;
+}
+
+select {
+  height: 80px !important;
+  font-size: 40px !important;
+}
+
+option {
+  height: 30px !important;
+  font-size: 15px !important;
+}
+
+textarea {
+  font-size: 40px !important;
+}
+
+span {
+  font-size: 30px !important;
+}
+
+.box_p {
+  background-color: var(--couleur_principale);
+  align-content: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+  border-radius: 2vh;
+  padding: 1vh;  
+}
+
+.box_s {
+  background-color: var(--couleur_secondaire);
+  align-content: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+  border-radius: 2vh;
+  padding: 1.5vh;    
+}
+
+.icon_mw {
+  height: 5vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.icon_fleche {
+  height: 3vh;
+  margin-top: 1vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.map {
+  height: 100vh;
+}
+
+.map_mesure {
+  margin-top: 2vh;
+  height: 30vh;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.topright {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bottomleft {
+  position: fixed;
+  bottom: 0;
+}
+
+.bouton_p {
+  background-color: var(--couleur_principale);
+  border-radius: 100%;
+  width: var(--taille_bouton);
+  height: var(--taille_bouton);
+  margin: 2vh;
+}
+
+.bouton_s {
+  background-color: var(--couleur_secondaire);
+  border-radius: 100%;
+  width: var(--taille_bouton);
+  height: var(--taille_bouton);
+  margin: 2vh;
+}
+
+.bouton_red {
+  background-color: red;
+  border-radius: 100%;
+  width: var(--taille_bouton);
+  height: var(--taille_bouton);
+  margin: 2vh;
+}
+
+.bouton_gray {
+  background-color: gray;
+  border-radius: 100%;
+  width: var(--taille_bouton);
+  height: var(--taille_bouton);
+  margin: 2vh;
+}
+
+.img_bouton {
+  width: calc(var(--taille_bouton) / 2);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ligne_attribut {
+  margin-left: 2vw;
+}
+
+.check_attribut {
+  height: 40px !important;
+  width: 40px !important;
+}
+
+.check_attribut_text {
+  margin-left: 4vw;
+}
+
+.delete_proj {
+  width: 40px;
+  position: relative;
+  left: 90%;
+  margin-top:auto;
+}
+
+.logo_workmes {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 3%;
+  left: 15%;
+}
+
+.text_credit {
+  font-size: 40px !important;
+  position: absolute;
+  bottom: 3.5%;
+  left: 27%;
+}

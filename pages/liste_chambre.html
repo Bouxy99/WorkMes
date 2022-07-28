@@ -1,0 +1,22 @@
+<body>
+
+	<div class="box_p row container-fluid">
+		<img src="img/fleche-arriere-gauche.png" alt="flux" class="icon_fleche" onclick="history.back()">
+		<h2>Liste - Chambre</h2>
+	</div>
+
+    <!-- Liste de toutes les chambres dans le projet-->
+	<div id="a{{proj.nom}}" class="box_s container-fluid" ng-repeat="chambre in dict_WorkMes.dict_proj[dict_WorkMes.active_proj].dict_mes.chambre">
+		<div ng-click="select_chambre(chambre.id)">
+			<h3>{{chambre.id}}</h3>
+		</div>
+		
+	</div>
+
+    <div class="row bottomleft">
+        <div id="delete_button" class="bouton_gray" ng-click="delete_mode()">
+            <img src="img/delete.png" alt="supprimer" class="img_bouton">
+        </div>
+    </div>
+    
+</body>

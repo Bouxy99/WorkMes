@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>WorkMes</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="ext/bootstrap-4.6.1-dist/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="ext/openlayers-6.14.1-dist/ol.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<!-- Chargement des modules AngularJS -->
+<script src="ext/angularjs-1.6.9/angular.min.js"></script>
+<script src="ext/angularjs-1.6.9/angular-route.min.js"></script>
+
+<!-- Definition de la section application ANgularJS -->
+
+<body ng-app="WorkMes">
+    <div id="page-content">
+        <!-- Emplacement du chargement de la page -->
+        <div ng-view></div>
+    </div>
+</body>
+
+<!-- Chargement du module de configuration de Angular -->
+<script type="text/javascript" src="js/angular_config.js"></script>
+
+<!-- Chargement des modules pour openlayers -->
+<script src="ext/openlayers-6.14.1-dist/ol.js"></script>
+<script src="ext/proj4js-2.6.2/proj4.js"></script>
+
+<!-- Chargement des modules pour JQuery -->
+<script src="ext/jquery-3.5.1/jquery-3.5.1.slim.min.js"></script>
+<script src="ext/jquery-3.5.1/jquery.min.js"></script>
+
+<!-- Chargement des services WorkMes -->
+<script src="js/services/openlayers_Serv.js"></script>
+<script src="js/services/WorkMes_utils_Serv.js"></script>
+
+<!-- Chargement des controller WorkMes -->
+<script src="js/controllers/carte_Ctrl.js"></script>
+<script src="js/controllers/adapt_plani_alti_Ctrl.js"></script>
+<script src="js/controllers/mesure_Ctrl.js"></script>
+<script src="js/controllers/connexions_Ctrl.js"></script>
+<script src="js/controllers/projets_Ctrl.js"></script>
+<script src="js/controllers/leve_chambre_Ctrl.js"></script>
+<script src="js/controllers/liste_chambre_Ctrl.js"></script>
+
+</html>

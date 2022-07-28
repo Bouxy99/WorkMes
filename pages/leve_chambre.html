@@ -1,0 +1,223 @@
+<body>
+
+    <div class="box_p row container-fluid">
+      	<img src="img/fleche-arriere-gauche.png" alt="flux" class="icon_fleche" onclick="history.back()" ng-click="reset_type_pt()">
+        <h2>Lever - Chambre</h2>
+    </div>
+
+	<!-- Radier -->
+    <div class="box_s container-fluid">
+        <h3>Radier</h3>
+		<div style="margin-top: 2vh;" ng-if="dict_WorkMes['chambre_temp']['radier']['coord'][0] > -1"> <!-- Test si radier vide -->
+			<table class="table">
+				<thead>
+					<tr class="bg-secondary text-white">
+						<th scope="col">Est [m]</th>
+						<th scope="col">Nord [m]</th>
+						<th scope="col">Alti. [m]</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="bg-white">
+						<td>{{dict_WorkMes['chambre_temp']['radier']['coord'][0]}}</td>
+						<td>{{dict_WorkMes['chambre_temp']['radier']['coord'][1]}}</td>
+						<td>{{dict_WorkMes['chambre_temp']['radier']['coord'][2]}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<a href="#!mesure" ng-click="def_pt_mes('radier')">
+			<div class="box_p" style="text-align: center;">
+				<h3>Mesurer un point</h3>
+			</div>
+		</a>
+    </div>
+
+	<!-- Entrée -->
+    <div class="box_s container-fluid">
+        <h3>Entrée(s)</h3>
+		<!-- Liste des entrés -->
+		<div style="margin-top: 2vh;" ng-if="dict_WorkMes['chambre_temp']['id_entree'] > 1"> <!-- Test si liste des entrees vide -->
+			<table class="table">
+				<thead>
+					<tr class="bg-secondary text-white">
+						<th scope="col">Label</th>
+						<th scope="col">Est [m]</th>
+						<th scope="col">Nord [m]</th>
+						<th scope="col">Alti. [m]</th>
+					</tr>
+				</thead>
+				<tbody>
+					<div>
+						<tr class="bg-white" ng-repeat="pt in dict_WorkMes.chambre_temp.entree">
+							<td>{{pt.label}}</td>
+							<td>{{pt.mes.coord[0]}}</td>
+							<td>{{pt.mes.coord[1]}}</td>
+							<td>{{pt.mes.coord[2]}}</td>
+						</tr>
+					</div>
+				</tbody>
+			</table>
+		</div>
+		<a href="#!mesure" ng-click="def_pt_mes('entree')">
+			<div class="box_p" style="text-align: center;">
+				<h3>Ajouter un point</h3>
+			</div>
+		</a>
+    </div>
+
+	<!-- Sortie -->
+	<div class="box_s container-fluid">
+		<h3>Sortie(s)</h3>
+		<!-- Liste des sorties -->
+		<div style="margin-top: 2vh;" ng-if="dict_WorkMes['chambre_temp']['id_sortie'] > 1"> <!-- Test si liste des sortie vide -->
+			<table class="table">
+				<thead>
+					<tr class="bg-secondary text-white">
+						<th scope="col">Label</th>
+						<th scope="col">Est [m]</th>
+						<th scope="col">Nord [m]</th>
+						<th scope="col">Alti. [m]</th>
+						<!-- <th scope="col"></th> -->
+					</tr>
+				</thead>
+				<tbody>
+					<div>
+						<tr class="bg-white" ng-repeat="pt in dict_WorkMes.chambre_temp.sortie">
+							<td>{{pt.label}}</td>
+							<td>{{pt.mes.coord[0]}}</td>
+							<td>{{pt.mes.coord[1]}}</td>
+							<td>{{pt.mes.coord[2]}}</td>
+							<!--<td><img src="img/plus.png" alt="supprimer" height="50px"></td> -->
+						</tr>
+					</div>
+				</tbody>
+			</table>
+		</div>
+		<a href="#!mesure" ng-click="def_pt_mes('sortie')">
+			<div class="box_p" style="text-align: center;">
+				<h3>Ajouter un point</h3>
+			</div>
+		</a>
+	</div>
+
+	<!-- Informations de la chambre -->
+	<div class="box_s container-fluid">
+		<h3>Attributs</h3>
+		<label style="color: red;">{{error_attribut}}</label>
+		<form>
+			<!-- Dimension 1 -->
+            <div class="form-group row">
+				<label class="col-sm-7 col-form-label">Dimension 1 [mm]</label>
+				<div class="col-sm-5 input-group mb-3">
+					<input type="number" class="form-control" ng-model="dict_WorkMes['chambre_temp']['dimension1']" ng-keyup="set_min_max('dimension1',0,4000,'Dimension 1');link_dim1_dim2()">
+				</div>
+            </div>
+
+			<!-- Dimension 2 -->
+            <div class="form-group row">
+				<label class="col-sm-7 col-form-label">Dimension 2 [mm]</label>
+				<div class="col-sm-5 input-group mb-3">
+					<input type="number" class="form-control" ng-model="dict_WorkMes['chambre_temp']['dimension2']" ng-keyup="set_min_max('dimension2',0,4000,'Dimension 2')">
+				</div>
+            </div>
+
+			<!-- Année de construction -->
+            <div class="form-group row">
+				<label class="col-sm-4 col-form-label">Année const.</label>
+				<div class="col-sm-8 input-group mb-3">
+					<input type="number" class="form-control" ng-model="dict_WorkMes['chambre_temp']['annee_const']" ng-keyup="set_min_max('annee_const',1800,2100,'Année const.')">
+				</div>
+            </div>
+
+			<!-- Genre de chambre -->
+            <div class="form-group row">
+				<label class="col-sm-4 col-form-label">Fonction</label>
+				<div class="col-sm-8 input-group mb-3">
+					<select class="custom-select" ng-model="dict_WorkMes['chambre_temp']['fonction']">
+					  <option value="0">Ouvrage de chute</option>
+					  <option value="1">Autre</option>
+					  <option value="3">Chambre récolte toitures</option>
+					  <option value="4">Chambre grille entrée</option>
+					  <option value="5">Rigole drainage</option>
+					  <option value="7">Regarde visite</option>
+					  <option value="11">Dépotoir</option>
+					  <option value="15">Inconnue</option>
+					</select>
+				</div>
+            </div>
+
+			<!-- Matériau -->
+            <div class="form-group row">
+				<label class="col-sm-4 col-form-label">Matériau</label>
+				<div class="col-sm-8 input-group mb-3">
+					<select class="custom-select" ng-model="dict_WorkMes['chambre_temp']['materiau']">
+					  <option value="0">Autre</option>
+					  <option value="1">Béton</option>
+					  <option value="2">Matière plastique</option>
+					  <option value="3">Inconnu</option>
+					</select>
+				</div>
+            </div>
+
+			<!-- Etat de service -->
+            <div class="form-group row">
+				<label class="col-sm-4 col-form-label">Etat</label>
+				<div class="col-sm-8 input-group mb-3">
+					<select class="custom-select" ng-model="dict_WorkMes['chambre_temp']['etat']">
+					  <option value="0">Hors service</option>
+					  <option value="1">En service</option>
+					  <option value="2">Abandonné</option>
+					  <option value="3">Inconnu</option>
+					</select>
+				</div>
+            </div>
+
+			<!-- Propriétaire -->
+            <div class="form-group row">
+				<label class="col-sm-4 col-form-label">Propriétaire</label>
+				<div class="col-sm-8 input-group mb-3">
+					<select class="custom-select" ng-model="dict_WorkMes['chambre_temp']['proprietaire']">
+					  <option value="0">Privé</option>
+					  <option value="1">Commune</option>
+					  <option value="2">Canton</option>
+					  <option value="3">Syndicat</option>
+					  <option value="4">Inconnu</option>
+					</select>
+				</div>
+            </div>
+
+			<!-- Ouvrage spécial -->
+            <div class="form-group row">
+				<label class="col-sm-6 col-form-label">Ouvrage spécial</label>
+				<div class="col-sm-6 input-group mb-3">
+					<input class="form-check-input check_attribut" type="checkbox" value="" ng-model="dict_WorkMes['chambre_temp']['ouvrage_spe']">
+				</div>
+            </div>
+
+			<!-- Remarque -->
+            <div class="form-group row">
+				<label class="col-sm-4 col-form-label">Remarque</label>
+				<div class="col-sm-8 input-group mb-3">
+					<textarea class="form-control" cols="30" rows="3" maxlength="80" ng-model="dict_WorkMes['chambre_temp']['remarque']"></textarea>
+				</div>
+            </div>
+		</form>
+	</div>
+
+	<!-- Permet de scroller meme au fond de la page -->
+	<div style="padding: 10%;"></div>
+
+    <div class="row bottomleft">
+        <div class="bouton_p" ng-click="add_chambre()">
+            <img src="img/plus.png" alt="ajouter" class="img_bouton">
+        </div>
+		<a href="#!liste_chambre">
+			<div class="bouton_p">
+				<img src="img/liste.png" alt="ajouter" class="img_bouton">
+			</div>
+		</a>
+    </div>
+    
+</body>
+</html>

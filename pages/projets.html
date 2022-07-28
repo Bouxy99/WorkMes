@@ -1,0 +1,27 @@
+<body>
+
+	<div class="box_p row container-fluid">
+		<img src="img/fleche-arriere-gauche.png" alt="flux" class="icon_fleche" onclick="history.back()">
+		<h2>Projets</h2>
+	</div>
+
+	<h3 style="color: var(--couleur_principale); margin: 2vh; text-align: center;">Projet actif : {{dict_WorkMes.active_proj}}</h3>
+
+	<div id="a{{proj.nom}}" class="box_s container-fluid" ng-repeat="proj in dict_WorkMes.dict_proj">
+		<div ng-click="select_proj(proj.nom)">
+			<img src="img/croix.png" alt="supprimer" class="delete_proj" ng-click="delete_proj(proj.nom)">
+			<h2>{{proj.nom}}</h2>
+		</div>
+		
+	</div>
+
+    <div class="row bottomleft">
+        <div class="bouton_p" ng-click="create_proj()">
+            <img src="img/plus.png" alt="ajouter" class="img_bouton">
+        </div>
+        <div class="bouton_s" ng-click="save_bd()">
+            <img src="img/database.png" alt="ajouter" class="img_bouton">
+        </div>
+    </div>
+    
+</body>
